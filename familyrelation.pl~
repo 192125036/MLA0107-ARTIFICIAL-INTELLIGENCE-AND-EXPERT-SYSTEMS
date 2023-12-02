@@ -1,0 +1,29 @@
+% Facts defining relationships
+parent(john, mary).
+parent(john, lisa).
+parent(mary, jennifer).
+parent(lisa, peter).
+parent(lisa, sara).
+parent(jennifer, tom).
+
+male(john).
+male(peterather(X, Y) :-
+    male(X),
+
+sibling(X, Y) :-
+    parent(Z, X),
+    parent(Z, Y),
+    X \= Y.
+
+grandparent(X, Y) :-
+    parent(X, Z),
+    parent(Z, Y).
+
+grandfather(X, Y) :-
+    male(X),
+    grandparent(X, Y).
+
+grandmother(X, Y) :-
+    female(X),
+    grandparent(X, Y).
+
